@@ -580,7 +580,7 @@
 
         $('.dealer-cards').html("");
         gameRoom.dealer.hand.cardList.forEach(function(card) {
-            $('.dealer-cards').append(generateCardDiv(card.rank, card.suit));
+            $('.dealer-cards').append(generateCardDiv(card.rank, card.suit, card.shape));
         })
         if (gameRoom.dealer.hand.cardList.length == 1) {
             $('.dealer-cards').append('<div class="card card2 flipped" data-value="6"></div>');
@@ -591,7 +591,7 @@
 
         $('.player-cards').html("");
         gameRoom.playerList[user.name].hand.cardList.forEach(function(card) {
-            $('.player-cards').append(generateCardDiv(card.rank, card.suit));
+            $('.player-cards').append(generateCardDiv(card.rank, card.suit, card.shape));
         });
         if (gameRoom.playerList[user.name].hand.cardList.length > 0) {
             $('.player-cards').append('<div id="playerTotal" class="player-total">' + gameRoom.playerList[user.name].hand.cardSum + '</div>')
@@ -601,7 +601,7 @@
         $('#money').html(gameRoom.playerList[user.name].balance);
     }
 
-    function generateCardDiv(rank, suit) {
+    function generateCardDiv(rank, suit, shape) {
         var className = "";
         switch (rank) {
             case 1 :
@@ -632,17 +632,22 @@
                 className = "nine-of-";
                 break;
             case 10 :
-                className = "ten-of-";
-                break;
-            case 11 :
-                className = "jack-of-";
-                break;
-            case 12 :
-                className = "queen-of-";
-                break;
-            case 13 :
-                className = "king-of-";
-                break;
+                if(shape == 1){
+                    className = "jack-of-";
+                    break;
+                }
+                else if(shape == 2){
+                    className = "queen-of-";
+                    break;
+                }
+                else if(shape == 3){
+                    className = "king-of-";
+                    break;
+                }
+                else{
+                    className = "ten-of-";
+                    break;
+                }
         }
         className += suit.toLowerCase();
 
