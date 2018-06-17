@@ -24,6 +24,13 @@ public class Hand {
     }
 
     public int getCardSum() {
+        for(int i = 0; i < cardList.size(); i++){       //ace를 1,11중에 유리한 것으로 선택
+            if(cardList.get(i).getRank() == 1){
+                if(cardList.stream().mapToInt(card -> card.getRank()).sum() + 10 <= 21){
+                    return cardList.stream().mapToInt(card -> card.getRank()).sum() + 10;
+                }
+            }
+        }
         return cardList.stream().mapToInt(card -> card.getRank()).sum();
     }
 
