@@ -42,6 +42,18 @@ public class Deck {
             // 코드에 그런 내용이 들어가야 함.
             throw new NoMoreCardException();
         }
+        else if(cardList.size() == 10){
+            cardList.clear();
+            for (int j = 0; j < number; j++) {
+                for (Suit suit : Suit.values()) {
+                    for (int i = 1 ; i < 14; i++) {
+                        Card card = new Card(i, suit);
+                        cardList.add(card);
+                    }
+                }
+            }
+            Collections.shuffle(cardList);
+        }
         return cardList.remove(0);
     }
 
