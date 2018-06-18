@@ -46,28 +46,48 @@
             border-collapse: collapse;
             border : 1px solid black;
             text-align: center;
+            background-color: white;
         }
         td,tr{
             border : 1px solid black;
             width: 100px;
             height: 40px;
         }
-
+        img{
+            width:100%;
+            height:100%;
+        }
         body{
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
             font-size: 15px;
             line-height: 40px;
             background-color: #FFFFFF;
-            background-image: url('middleSection2.jpg');
+            background-image: url('255.jpg');
+            min-height: 100%;
             background-size: 1000px;
             background-position-x: 1000px;
         }
-
+        b{
+            color: white;
+        }
+        #playerTotal, #dealerTotal{
+            color: white;
+        }
+        #table{
+            width: 30%;
+        }
+        #game{
+            width: 70%;
+        }
+        #user_name, #funds{
+            color: ivory;
+        }
         #game, #login, #lobby{
             background-color: #FFFFFF;
             background-size: 1000px;
-            background-image: url('middleSection2.jpg');
+            background-image: url('255.jpg');
+            min-height: 100%;
         }
         #login, #lobby{
             padding-top: 100px;
@@ -137,7 +157,7 @@
             white-space: nowrap;
             text-decoration: none;
             cursor: pointer;
-            background-color: #A9014B;
+            background-color: rgb(223,32,47);
             border-style: none;
             text-align: center;
             overflow: visible;
@@ -427,7 +447,7 @@
         }
 
         .money{
-            color: purple;
+            color: white;
             font-size: 30px;
             font-weight: bold;
             font-family: sans-serif;
@@ -449,12 +469,14 @@
     </div>
 </div>
 <div class="info" id="info" style="display: none"> <!--추가 이름, 보유금액-->
-    <b>Name</b><span id="user_name"></span>
+    <b>Name</b>&nbsp;&nbsp;<span id="user_name"></span>
     <br>
-    <b>Total Funds</b><span id="funds" class="funds"></span>
+    <b>Total Funds</b>&nbsp;&nbsp;<span id="funds" class="funds"></span>
 </div>
+<div id="table">
 <table class="info" id="ranking" style=""> <!--랭킹 이름, 보유금액-->
 </table>
+</div>
 <div class="page" id="game" style="display: none">
     <div class="dealer-cards"></div>
     <div class="clear"></div>
