@@ -24,8 +24,8 @@
       <file leaf-file-name="GameRoom.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/GameRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="606">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -70,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/blackjack/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-957">
-              <caret line="650" lean-forward="true" selection-start-line="650" selection-end-line="650" />
+            <state relative-caret-position="128">
+              <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -106,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlackjackService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlackjackService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/service/BlackjackService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
@@ -137,10 +137,10 @@
         <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/Hand.java" />
         <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/Evaluator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/GameRoom.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/blackjack/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/controller/api/BlackApiController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/service/BlackjackService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/GameRoom.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/blackjack/index.html" />
       </list>
     </option>
   </component>
@@ -166,9 +166,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
-    <option name="y" value="4" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="67" />
+    <option name="y" value="10" />
     <option name="width" value="1401" />
     <option name="height" value="983" />
   </component>
@@ -397,15 +397,15 @@
       <workItem from="1529239407563" duration="803000" />
       <workItem from="1529241104237" duration="1116000" />
       <workItem from="1529242285163" duration="1407000" />
-      <workItem from="1529303371099" duration="27795000" />
+      <workItem from="1529303371099" duration="28310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31165000" />
+    <option name="totallyTimeSpent" value="31680000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-105" y="4" width="934" height="655" extended-state="0" />
+    <frame x="45" y="7" width="934" height="655" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -426,10 +426,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49746928" visible="true" weight="0.17527676" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49746928" visible="true" weight="0.30258304" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23369566" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23369566" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -833,22 +833,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/GameRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/blackjack/middleSection2.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blackjack/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-957">
-          <caret line="650" lean-forward="true" selection-start-line="650" selection-end-line="650" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/controller/api/BlackApiController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -866,6 +852,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/cnu/web/games/blackjack/GameRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blackjack/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
         </state>
       </provider>
     </entry>
