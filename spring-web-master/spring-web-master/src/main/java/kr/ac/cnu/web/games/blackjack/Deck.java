@@ -42,7 +42,7 @@ public class Deck {
             // 코드에 그런 내용이 들어가야 함.
             throw new NoMoreCardException();
         }
-        else if(cardList.size() == 10){
+        else if(cardList.size() == 10){ // 리스트에 10장의 카드가 남으면 카드리스트 초기화후에 다시 집어넣어 셔플
             cardList.clear();
             for (int j = 0; j < number; j++) {
                 for (Suit suit : Suit.values()) {

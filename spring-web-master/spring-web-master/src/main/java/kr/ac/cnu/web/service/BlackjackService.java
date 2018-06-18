@@ -54,7 +54,7 @@ public class BlackjackService {
         GameRoom gameRoom = gameRoomMap.get(roomId);
 
         gameRoom.hit(user.getName());
-
+        gameRoom.hitOver(user.getName());
         return gameRoom;
     }
 

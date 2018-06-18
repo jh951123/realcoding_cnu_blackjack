@@ -51,11 +51,18 @@ public class Player {
 
     public void tie() {
         balance += currentBet;
-        //currentBet = 0; 없앰
+
+        if(balance < currentBet){
+            currentBet = balance;
+            balance = 0;
+        }
     }
 
     public void lost() {
-        //currentBet = 0; 없앰
+        if(balance < currentBet){
+            currentBet = balance;
+            balance = 0;
+        }
     }
 
     public Card hitCard() {

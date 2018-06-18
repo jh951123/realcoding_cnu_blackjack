@@ -75,4 +75,10 @@ public class GameRoom {
         this.isFinished = true;
     }
 
+    public void hitOver(String name){
+        if(playerList.get(name).getHand().getCardSum()>21){
+            this.isFinished = true;
+        }
+    }
+
 }
