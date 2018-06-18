@@ -12,6 +12,14 @@ public class Hand {
     private Deck deck;
     @Getter
     private List<Card> cardList = new ArrayList<>();
+    private boolean isDouble = false;
+
+    public void setIsDouble(){
+        this.isDouble = true;
+    }
+    public boolean getIsDouble(){
+        return this.isDouble;
+    }
 
     public Hand(Deck deck) {
         this.deck = deck;
@@ -37,4 +45,8 @@ public class Hand {
     public void reset() {
         cardList.clear();
     }
+    public int handSize(){
+        return cardList.size();
+    }
+
 }

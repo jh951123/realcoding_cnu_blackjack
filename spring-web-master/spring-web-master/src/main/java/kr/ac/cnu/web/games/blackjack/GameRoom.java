@@ -20,6 +20,7 @@ public class GameRoom {
     private final Deck deck;
     @Getter
     private boolean isFinished;
+
     private final Evaluator evaluator;
 
     public GameRoom(Deck deck) {
@@ -48,7 +49,6 @@ public class GameRoom {
 
     public void bet(String name, long bet) {
         Player player = playerList.get(name);
-
         player.placeBet(bet);
     }
 
@@ -69,10 +69,23 @@ public class GameRoom {
         player.stand();
     }
 
+
+    public void Double(String name){
+        playerList.get(name).getHand().setIsDouble();
+        hit(name);
+    }
+
     public void playDealer() {
         dealer.play();
         evaluator.evaluate();
         this.isFinished = true;
+    }
+
+    public void eval(String name){
+        if(playerList.get(name).getHand().getCardSum()>21){
+            playerList.get(name).DoubleLost();
+            this.isFinished = true;
+        }
     }
 
     public void hitOver(String name){
@@ -81,4 +94,19 @@ public class GameRoom {
         }
     }
 
+    public boolean DoubleOver(String name){
+        if(playerList.get(name).getHand().getCardSum()>21){
+            return true;
+        }
+        return false;
+    }
+
+    public void startgame_blackjack(String name){
+        if(playerList.get(name).getHand().handSize() == 2){
+            if(playerList.get(name).getHand().getCardSum() == 21){
+                playerList.get(name).blackjackwin();
+                this.isFinished = true;
+            }
+        }
+    }
 }

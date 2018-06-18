@@ -426,7 +426,7 @@
     <div class="dealer-cards"></div>
     <div class="clear"></div>
     <div class="player-cards"></div>
-    <div class="buttons"><div class="btn" id="hit">Hit</div><div class="btn" id="stand">Stand</div></div>
+    <div class="buttons"><div class="btn" id="hit">Hit</div><div class="btn" id="stand">Stand</div><div class="btn" id="Double">Double</div></div>
     <div class="buttons"><div class="btn" id="deal">Deal</div></div>
     <div class="betting-area">
         <b>Your Bet</b><br>
@@ -523,6 +523,7 @@
             },
         }).done(function(data) {
             drawGameRoom(data);
+            $('#Double').hide();
             if(data.finished){  //hit로 졌을 때
                 $('#funds').html(parseInt($('#money').html())); <!--추가 펀드-->
                 $('#money').html(parseInt($('#funds').html()) - parseInt($('#bet').html())); <!--추가 펀드-->
@@ -545,8 +546,22 @@
         });
     })
 
+    $('#Double').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/api/black-jack/rooms/' + gameRoomId + '/Double',
+            headers: {
+                'name':user.name
+            },
+        }).done(function(data) {
+            drawGameRoom(data);
+            $('#funds').html(parseInt($('#money').html())); <!--추가 펀드-->
+            $('#money').html(parseInt($('#funds').html()) - parseInt($('#bet').html())); <!--추가 펀드-->
+        });
+    })
+
     $('#more').click(function(){
-        var bet = 1250;
+        var bet = 1000;
         var currentBet = parseInt($('#bet').html());
         var money = parseInt($('#money').html());
         if(currentBet == 10000){
@@ -588,6 +603,7 @@
             $('#less').show();
             $('#hit').hide();
             $('#stand').hide();
+            $('#Double').hide();
             document.getElementById("more").disabled = false;
         } else {
             $('#deal').hide();
@@ -595,6 +611,7 @@
             $('#less').hide();
             $('#hit').show();
             $('#stand').show();
+            $('#Double').show();
         }
 
         $('.dealer-cards').html("");

@@ -39,6 +39,7 @@ public class Player {
         isPlaying = true;
     }
 
+
     public void deal() {
         hand.drawCard();
         hand.drawCard();
@@ -59,10 +60,7 @@ public class Player {
     }
 
     public void lost() {
-        if(balance < currentBet){
-            currentBet = balance;
-            balance = 0;
-        }
+
     }
 
     public Card hitCard() {
@@ -75,5 +73,15 @@ public class Player {
 
     public void blackjackwin(){
         balance+=currentBet*2.5;
+    }
+
+    public void DoubleWin() {
+        balance += currentBet * 3;
+        currentBet=currentBet*2;
+        //currentBet = 0; 없앰
+    }
+    public void DoubleLost() {
+        balance -= currentBet;
+        currentBet=currentBet*2;
     }
 }
