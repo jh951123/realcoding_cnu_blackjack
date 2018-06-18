@@ -46,6 +46,8 @@ public class BlackjackService {
         gameRoom.reset();
         gameRoom.bet(user.getName(), bet);
         gameRoom.deal();
+        //deal을 한 후 startgame_blackjack메소드 실행
+        gameRoom.startgame_blackjack(user.getName());
 
         return gameRoom;
     }
@@ -60,11 +62,22 @@ public class BlackjackService {
 
     public GameRoom stand(String roomId, User user) {
         GameRoom gameRoom = gameRoomMap.get(roomId);
-
         gameRoom.stand(user.getName());
         gameRoom.playDealer();
 
         return gameRoom;
+    }
+
+    public GameRoom Double(String roomId, User user){
+        GameRoom gameRoom = gameRoomMap.get(roomId);
+        gameRoom.Double(user.getName());
+        if(gameRoom.DoubleOver(user.getName()) == true) {
+            gameRoom.eval(user.getName());
+            return gameRoom;
+        }
+         else {
+            return stand(roomId, user);
+        }
     }
 
 }

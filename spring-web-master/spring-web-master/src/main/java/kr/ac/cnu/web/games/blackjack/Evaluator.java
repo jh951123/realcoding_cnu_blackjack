@@ -22,24 +22,55 @@ public class Evaluator {
         int dealerResult = dealer.getHand().getCardSum();
 
         if (dealerResult > 21) {
-            playerMap.forEach((s, player) -> player.win());
-
+            if (playerMap.values().stream().anyMatch(player -> player.getHand().getIsDouble())) {
+                playerMap.forEach((s, player) -> player.DoubleWin());
+                playerMap.forEach((s, player) -> player.getHand().setIsDouble());
+            }
+            else {
+                playerMap.forEach((s, player) -> player.win());
+            }
             return true;
         }
 
         playerMap.forEach((s, player) -> {
             int playerResult = player.getHand().getCardSum();
-            if(playerResult == 21){
-                player.blackjackwin();
+            // player의 card수에 따라 다르게 처리
+            if(player.getHand().getCardList().size() == 2){
+                if(playerResult == 21){
+                    player.blackjackwin();
+                }
             }
-            if (playerResult > 21) {
-                player.lost();
-            } else if (playerResult > dealerResult) {
-                player.win();
-            } else if (playerResult == dealerResult) {
-                player.tie();
-            } else {
-                player.lost();
+            else{
+                if(playerResult > 21){
+                    if(player.getHand().getIsDouble() == true){
+                        player.DoubleLost();
+                        player.getHand().setIsDouble();
+                    }
+                    else {
+                        player.lost();
+                    }
+                }
+                else if(playerResult > dealerResult){
+                    if(player.getHand().getIsDouble() == true){
+                        player.DoubleWin();
+                        player.getHand().setIsDouble();
+                    }
+                    else {
+                        player.win();
+                    }
+                }
+                else if(playerResult == dealerResult){
+                    player.tie();
+                }
+                else{
+                    if(player.getHand().getIsDouble()==true){
+                        player.DoubleLost();
+                        player.getHand().setIsDouble();
+                    }
+                    else{
+                        player.lost();
+                    }
+                }
             }
         });
 
