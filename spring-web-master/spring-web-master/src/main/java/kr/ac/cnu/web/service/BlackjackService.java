@@ -79,5 +79,10 @@ public class BlackjackService {
             return stand(roomId, user);
         }
     }
+    public long Account(String roomId, User user){
+        GameRoom gameRoom = gameRoomMap.get(roomId);
+        return gameRoom.Account(user.getName());
+    }
+
 
 }

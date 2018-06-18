@@ -14,8 +14,8 @@
 
             border:0;
 
-            font-size:100%;
-
+            font-size:110%;
+            font-weight: bold;
             vertical-align:baseline;
 
         }
@@ -49,8 +49,25 @@
             font-size: 15px;
             line-height: 40px;
             background-color: #FFFFFF;
+            background-image: url('middleSection2.jpg');
+            background-size: 1000px;
+            background-position-x: 1000px;
         }
 
+        #game, #login, #lobby{
+            background-color: #FFFFFF;
+            background-size: 1000px;
+            background-image: url('middleSection2.jpg');
+        }
+        #login, #lobby{
+            padding-top: 100px;
+        }
+        #game{
+            padding-bottom: 100px;
+        }
+        #bet, #money{
+            float: unset;
+        }
         .clear{
             clear: both;
         }
@@ -381,6 +398,7 @@
             width: 50px;
             margin: 0 auto;
             height: 40px;
+            float: left;
         }
 
         .betting-area{
@@ -399,12 +417,15 @@
         }
 
         .money{
-            color: green;
-            font-size: 21px;
+            color: purple;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: sans-serif;
         }
-    </style>
+        <img src="../../../../../../../../../../../양진이/middleSection2.jpg"/></style>
 </head>
 <body>
+
 <div class="page" id="login">
     <div>
         <input type="text" id="input_login_name" />
@@ -422,6 +443,8 @@
     <br>
     <b>Total Funds</b><span id="funds" class="funds"></span>
 </div>
+<table class="info" id="ranking" style=""> <!--랭킹 이름, 보유금액-->
+</table>
 <div class="page" id="game" style="display: none">
     <div class="dealer-cards"></div>
     <div class="clear"></div>
@@ -605,7 +628,28 @@
             $('#stand').hide();
             $('#Double').hide();
             document.getElementById("more").disabled = false;
-        } else {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/api/black-jack/rooms/' + gameRoomId + '/SaveUser',
+                data : gameRoomId,
+                headers: {
+                    'name':user.name
+                },
+            }).done(function(data) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:8080/api/black-jack/Ranking'
+                }).done(function(data){
+                    //var ranking = document.getElementById("ranking");
+                    $('#ranking').empty();
+                    for(var i=0; i<data.length; i++){
+                        $('#ranking').append("<tr><td>"+(i+1)+"</td>"+"<td>"+data[i].name+"</td>"+"<td>"+data[i].account+"</td></tr>");
+                    }
+                })
+
+            })
+
+    } else {
             $('#deal').hide();
             $('#more').hide();
             $('#less').hide();

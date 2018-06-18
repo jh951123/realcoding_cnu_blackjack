@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.awt.*;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -97,8 +99,31 @@ public class BlackApiController {
         return blackjackService.getGameRoom(roomId);
     }
 
+    @PostMapping("/rooms/{roomId}/SaveUser")
+    public void SaveUser(@RequestHeader("name") String name, @PathVariable String roomId){
+        User user = this.getUserFromSession(name);
+        user.setAccount(blackjackService.Account(roomId, user));
+        userRepository.save(user);
+    }
 
+    @PostMapping("/Ranking")
+    public List<User> Ranking(){
+        List<User> userlist = userRepository.findAll();
+        userlist.sort(new Comparator<User>(){
+            public int compare(User u1, User u2){
+                if(u1.getAccount() < u2.getAccount()){
+                    return 1;
+                }else if(u1.getAccount() > u2.getAccount()){
+                    return -1;
+                }else{
+                    return 0;
+                }
+            }
+        });
+        return userlist;
+    }
     private User getUserFromSession(String name) {
         return userRepository.findById(name).orElseThrow(() -> new NoLoginException());
     }
+
 }

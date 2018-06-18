@@ -109,4 +109,8 @@ public class GameRoom {
             }
         }
     }
+    public long Account(String name){
+        Player player = playerList.get(name);
+        return player.getBalance();
+    }
 }
